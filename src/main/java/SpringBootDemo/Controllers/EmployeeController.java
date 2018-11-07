@@ -1,4 +1,4 @@
-package com.example.demo.Controllers;
+package SpringBootDemo.Controllers;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.demo.Employee;
+import SpringBootDemo.Beans.Employee;
 
 @Controller
 public class EmployeeController {

@@ -1,4 +1,4 @@
-package com.example.demo;
+package SpringBootDemo;
 
 import java.util.List;
 
@@ -10,11 +10,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import SpringBootDemo.Beans.Student;
+import SpringBootDemo.Services.StudentMapper;
+
 @RestController
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.example.demo"})
-@EntityScan("com.example.demo")
-public class SpringBootProjectApplication {
+@ComponentScan(basePackages = {"SpringBootDemo"})
+@EntityScan("SpringBootDemo")
+public class SpringBootDemoApplication {
 	
     @Autowired
     private StudentMapper studentMapper;
@@ -22,7 +25,7 @@ public class SpringBootProjectApplication {
 	
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootProjectApplication.class, args);
+		SpringApplication.run(SpringBootDemoApplication.class, args);
 	}
 	
 	@RequestMapping("/")

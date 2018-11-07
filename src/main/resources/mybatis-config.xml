@@ -5,8 +5,8 @@
 <configuration>
 
 	<typeAliases>
-	   <typeAlias alias = "Student" type = "com.example.demo.Student"/>
-	   <typeAlias alias = "StudentMapper" type = "com.example.demo.StudentMapper"/>
+	   <typeAlias alias = "Student" type = "SpringBootDemo.Beans.Student"/>
+	   <typeAlias alias = "StudentMapper" type = "SpringBootDemo.Services.StudentMapper"/>
 	</typeAliases>		
 	
 	<environments default = "development">

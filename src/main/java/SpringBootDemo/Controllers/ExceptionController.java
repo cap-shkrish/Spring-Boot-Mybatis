@@ -1,4 +1,4 @@
-package com.example.demo.Controllers;
+package SpringBootDemo.Controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

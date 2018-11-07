@@ -1,9 +1,9 @@
-package JDBCTemplateDemo;
+package SpringBootDemo.JDBCTemplateDemo;
 
 import java.util.List;
 import javax.sql.DataSource;
 
-import com.example.demo.Student;
+import SpringBootDemo.Beans.Student;
 
 public interface StudentDAO {
    /** 

@@ -1,4 +1,4 @@
-package JDBCTemplateDemo;
+package SpringBootDemo.JDBCTemplateDemo;
 
 import java.util.List;
 import javax.sql.DataSource;
@@ -6,7 +6,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.example.demo.Student;
+import SpringBootDemo.Beans.Student;
 
 
 public class StudentDAOImpl implements StudentDAO {

@@ -1,4 +1,4 @@
-package com.example.demo;
+package SpringBootDemo.Beans;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -6,7 +6,9 @@ import java.util.LinkedHashMap;
 
 import javax.validation.constraints.*;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class Employee {
     private String employeeSkillsValue;
     

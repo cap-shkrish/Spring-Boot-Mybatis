@@ -19,7 +19,7 @@
 
    <!-- Definition for studentJDBCTemplate bean -->
    <bean id = "studentDAOImpl" 
-   		class = "JDBCTemplateDemo.StudentDAOImpl">
+   		class = "SpringBootDemo.JDBCTemplateDemo.StudentDAOImpl">
       	<property name = "dataSource" ref = "dataSource" />    
    </bean>
 

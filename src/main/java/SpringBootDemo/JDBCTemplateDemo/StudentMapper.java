@@ -1,10 +1,10 @@
-package JDBCTemplateDemo;
+package SpringBootDemo.JDBCTemplateDemo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.example.demo.Student;
+import SpringBootDemo.Beans.Student;
 
 
 public class StudentMapper implements RowMapper<Student> 

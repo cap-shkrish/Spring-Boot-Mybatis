@@ -1,4 +1,4 @@
-package com.example.demo.Controllers;
+package SpringBootDemo.Controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.Student;
+import SpringBootDemo.Beans.Student;
+import SpringBootDemo.Services.DataOperationsService;
 
 @CrossOrigin
 @RestController
@@ -27,7 +28,7 @@ import com.example.demo.Student;
 public class SecurityTestController
 {	
 	@Autowired
-	private DataOperations dop;   
+	private DataOperationsService dop;   
 	
 	
 	@PostMapping(value="/post", produces="application/json")

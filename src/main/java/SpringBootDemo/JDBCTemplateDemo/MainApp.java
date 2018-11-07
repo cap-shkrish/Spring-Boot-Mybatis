@@ -1,11 +1,11 @@
-package JDBCTemplateDemo;
+package SpringBootDemo.JDBCTemplateDemo;
 
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.example.demo.Student;
+import SpringBootDemo.Beans.Student;
 
 
 public class MainApp 
