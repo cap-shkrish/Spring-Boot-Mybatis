@@ -53,37 +53,20 @@ public class DataOperationsService {
 
 	public  List<Student> GetAll()
 	{
-
 		List<Student> students = studentMapper.getAll();
-
-		for (Student record : students) {
-			System.out.print("ID : " + record.getId() );
-			System.out.print(", Name : " + record.getName() );
-			System.out.print(", Phone : " + record.getPhone() );
-			System.out.print(", email : " + record.getEmail() );
-			System.out.println(", Age : " + record.getAge());
+		for (Student st : students) {
+			System.out.println(st.toString());
 		}
-
 		System.out.println("Records Read Successfully ");          
-
 		return students;
 	}
 
 
 	public  Student Get(int id)
 	{
-
-		Student student = studentMapper.getById(id);
-
-		//Print the student details
-		System.out.print("ID : " + student.getId() );
-		System.out.print(", Name : " + student.getName() );
-		System.out.print(", Phone : " + student.getPhone() );
-		System.out.print(", email : " + student.getEmail() );
-		System.out.println(", Age : " + student.getAge());
-
-
-		return student;
+		Student st = studentMapper.getById(id);
+		System.out.println(st.toString());
+		return st;
 	}
 
 	public  void Delete(Integer id)
@@ -101,15 +84,8 @@ public class DataOperationsService {
 		List<Student> students = studentMapper.callByAge( id);
 
 		for(Student st : students ){    	  
-
 			System.out.println("++++++++++++++details of the student named " + st.getName() + " are "+"+++++++++++++++++++" );
-
-			System.out.print("Id :  "+st.getId());
-			System.out.print("Name :  "+st.getName());
-			System.out.print("Age :  "+st.getAge());        
-			System.out.print("Email :  "+st.getEmail());        
-			System.out.println("Phone :  "+st.getPhone());    	  
-
+			System.out.println(st.toString());
 		}   
 
 		return students;
@@ -128,15 +104,8 @@ public class DataOperationsService {
 		List<Student> students = studentMapper.callByNameAge(student);
 
 		for(Student st : students ){    	  
-
 			System.out.println("++++++++++++++details of the student named " + st.getName() + " are "+"+++++++++++++++++++" );
-
-			System.out.print("Id :  "+st.getId());
-			System.out.print("Name :  "+st.getName());
-			System.out.print("Age :  "+st.getAge());        
-			System.out.print("Email :  "+st.getEmail());        
-			System.out.println("Phone :  "+st.getPhone());    	  
-
+			System.out.println(st.toString());
 		}   
 
 		return students;	}
@@ -152,15 +121,8 @@ public class DataOperationsService {
 		List<Student> students = studentMapper.getRecByName_age(student);
 
 		for(Student st : students ){    	  
-
 			System.out.println("++++++++++++++details of the student named " + st.getName() + " are "+"+++++++++++++++++++" );
-
-			System.out.print("Id :  "+st.getId());
-			System.out.print("Name :  "+st.getName());
-			System.out.print("Age :  "+st.getAge());        
-			System.out.print("Email :  "+st.getEmail());        
-			System.out.println("Phone :  "+st.getPhone());    	  
-
+			System.out.println(st.toString());
 		}     
 
 		System.out.println("Total Student Records Read Successfully : " + students.size());          
@@ -176,15 +138,8 @@ public class DataOperationsService {
 		List<Student> students = studentMapper.getByAge(age);
 
 		for(Student st : students ){    	  
-
 			System.out.println("++++++++++++++details of the student named " + st.getName() + " are "+"+++++++++++++++++++" );
-
-			System.out.print("Id :  "+st.getId());
-			System.out.print("Name :  "+st.getName());
-			System.out.print("Age :  "+st.getAge());        
-			System.out.print("Email :  "+st.getEmail());        
-			System.out.println("Phone :  "+st.getPhone());    	  
-
+			System.out.println(st.toString());
 		}     
 
 		System.out.println("Total Student Records Read Successfully : " + students.size());          
@@ -201,15 +156,8 @@ public class DataOperationsService {
 		List<Student> students = studentMapper.getRecByName(student);
 
 		for(Student st : students ){    	  
-
 			System.out.println("++++++++++++++details of the student named " + st.getName() + " are "+"+++++++++++++++++++" );
-
-			System.out.print("Id :  "+st.getId());
-			System.out.print("Name :  "+st.getName());
-			System.out.print("Age :  "+st.getAge());        
-			System.out.print("Email :  "+st.getEmail());        
-			System.out.println("Phone :  "+st.getPhone());    	  
-
+			System.out.println(st.toString());
 		}     
 
 		System.out.println("Total Student Records Read Successfully : " + students.size());          

@@ -3,23 +3,19 @@ package SpringBootDemo.JDBCTemplateDemo;
 import java.util.List;
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import SpringBootDemo.Beans.Student;
 
-
+@Repository("StudentDAO")
 public class StudentDAOImpl implements StudentDAO {
-   private DataSource dataSource;
-   private JdbcTemplate jdbcTemplate;
    
-   public void setDataSource(DataSource dataSource) {
-      this.dataSource = dataSource;
-      this.jdbcTemplate = new JdbcTemplate(dataSource);
-      
-      System.out.println(" Inside StudentJDBCTemplate  setDataSource  " );
-   }
-   public void create(String name, Integer age, String phone, String email) {
+   @Autowired JdbcTemplate jdbcTemplate;
+   
+    public void create(String name, Integer age, String phone, String email) {
       String SQL = "insert into Student (name, age, phone, email) values (?, ?, ?, ?)";
       jdbcTemplate.update( SQL, name, age, phone, email);
       System.out.println("Created Record Name = " + name + " Age = " + age + " Phone = " + phone + " Email = " + email);

@@ -6,11 +6,6 @@ import javax.sql.DataSource;
 import SpringBootDemo.Beans.Student;
 
 public interface StudentDAO {
-   /** 
-      * This is the method to be used to initialize
-      * database resources ie. connection.
-   */
-   public void setDataSource(DataSource ds);
    
    /** 
       * This is the method to be used to create

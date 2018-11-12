@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import SpringBootDemo.Beans.Student;
@@ -130,28 +128,29 @@ public class StudentServiceController
 	}
 	
 	@GetMapping(value="/count", produces="application/json")
-	public Map<String, String> GetStudentCount() throws IOException
+	public Map<String, Integer> GetStudentCount() throws IOException
 	{
 		int count = dop.GetRowCount();
-		Map map = new HashMap();
-		map.put("count", Integer.toString(count));		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("count", count);		
 		return map;
 	}  
 
-	@GetMapping(value="/callStoredProc/{age}", produces="application/json")
+	//Call Stored Procedure
+	@GetMapping(value="/call/{age}", produces="application/json")
 	public List<Student> CallStoredProc(@PathVariable("age") int age) throws IOException
 	{
 		List<Student> st = dop.CallStoredProcedure(age);
 		return st;
 	}  
 
-	@GetMapping(value="/callStoredProc/{name}/{age}", produces="application/json")
+	//Call Stored Procedure
+	@GetMapping(value="/call/{name}/{age}", produces="application/json")
 	public List<Student> CallStoredProcNameAge(@PathVariable("name") String name, @PathVariable("age") int age) throws IOException
 	{
 		List<Student> st = dop.CallStoredProcedureNameAge(name, age);
 		return st;
 	}  
-	
 
 
 }

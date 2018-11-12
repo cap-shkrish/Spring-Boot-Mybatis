@@ -17,16 +17,12 @@ import SpringBootDemo.Beans.Student;
 public class test {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 		getStudents();
 		createStudent();
 		deleteStudent();
 		getStudentByName("agee");
 		updateStudent();
-		
-		
-
 	}
 	
 	private static String uri = "http://localhost:8080/students";

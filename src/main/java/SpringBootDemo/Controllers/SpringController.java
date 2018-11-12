@@ -1,26 +1,21 @@
 package SpringBootDemo.Controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class SpringController {
 
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@GetMapping(value = "/index")
 	public ModelAndView visitHome() {
 		
 		return new ModelAndView("index");
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@GetMapping(value = "/")
 	public ModelAndView visitDefault() {
 		int i = 0;
 
@@ -34,7 +29,7 @@ public class SpringController {
 		return model;
 	}
 
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	@GetMapping(value = "/admin")
 	public ModelAndView visitAdmin() {
 		ModelAndView model = new ModelAndView("admin");
 		model.addObject("title", "Admministrator Control Panel");
@@ -42,16 +37,8 @@ public class SpringController {
 
 		return model;
 	}
-	@RequestMapping(value = "/kiran", method = RequestMethod.GET)
-	public ModelAndView visitKiran() {
-		ModelAndView model = new ModelAndView("kiran");
-		model.addObject("title", "Kiran K Webpage");
-		model.addObject("message", "Hello");
 
-		return model;
-	}
-
-	@RequestMapping(value = "/submit", method = RequestMethod.POST)
+	@GetMapping(value = "/submit")
 	public ModelAndView visitSubmit(@RequestParam("studentName") String name,
 			@RequestParam("studentHobby") String hobby) {
 		ModelAndView model = new ModelAndView("submit");
@@ -61,7 +48,7 @@ public class SpringController {
 		return model;
 	}
 
-	@RequestMapping(value = "/welcome/{userName}", method = RequestMethod.GET)
+	@GetMapping(value = "/welcome/{userName}")
 	public ModelAndView visitWelcome(@PathVariable("userName") String name) {
 
 		ModelAndView model = new ModelAndView("welcome");

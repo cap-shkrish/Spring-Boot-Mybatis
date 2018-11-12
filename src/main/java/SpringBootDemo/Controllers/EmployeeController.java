@@ -67,6 +67,12 @@ public class EmployeeController {
         
         return model;
     }
+    
+        //ArrayList<User> listUser = new ArrayList<>();
+		// get user list	
+		//ModelAndView modelView = new ModelAndView("employeeView");
+		//modelView.addObject("listUser", listUser);
+
     */
     
     @ModelAttribute
@@ -97,13 +103,6 @@ public class EmployeeController {
 
         return gotoPage;
     }
-    
-    
-    	//ArrayList<User> listUser = new ArrayList<>();
-		// get user list	
-		//ModelAndView modelView = new ModelAndView("employeeView");
-		//modelView.addObject("listUser", listUser);
-
     
     
 }
