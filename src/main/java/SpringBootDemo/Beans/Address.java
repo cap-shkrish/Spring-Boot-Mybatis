@@ -19,7 +19,6 @@ public class Address {
 		return "Address [id=" + id + ", address1=" + address1 + ", address2=" + address2 + ", city=" + city + ", state="
 				+ state + ", country=" + country + ", postalcode=" + postalcode + ", personList=" + personList + "]";
 	}
-	
 	public String getAddress1() {
 		return address1;
 	}

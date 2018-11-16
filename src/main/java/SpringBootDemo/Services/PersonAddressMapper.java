@@ -17,8 +17,8 @@ public interface PersonAddressMapper {
 	
 	public Person selectPerson(int id);
 	public Address selectAddress(int id);
-	public Address getResult(int id);
-	
+	public Address getPersonsForAddress(int id);
+	public List<Person> getPersons(int id);
 
 
 }

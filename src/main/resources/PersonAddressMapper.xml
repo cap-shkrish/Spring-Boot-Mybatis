@@ -11,7 +11,18 @@
 	 describes that the select Address statement should be used to load its 
 	 Address property.
 	 -->
+	<select id="selectPerson" resultMap="personResult">
+	  SELECT * FROM Person WHERE ID = #{id}
+	</select> 
+
 	 <resultMap id="personResult" type="Person">
+	 <!-- the column id passed should be from the Person table
+	 because you are joining addressId from Person to Id from Address table
+	 and hence use addressId for value to be passed to selectAddress 
+	 In other words, get Person object for id passed, then
+	 get the addressID from the Person retrieved and pass that value to the 
+	 column field below this field value will be used for selectAddress
+	 query.-->
   		<association property="address" column="{id=addressId,}" 
   					 javaType="Address" select="selectAddress"/>
 	</resultMap> 
@@ -20,32 +31,30 @@
       SELECT * FROM Address WHERE ID = #{id};
    	</select>
 
-	<select id="selectPerson" resultMap="personResult">
-	  SELECT * FROM Person WHERE ID = #{id}
-	</select> 
 	
 	<!-- Collection example -->
 	
+	<select id="getPersonsForAddress" resultMap="addressResult">
+	  SELECT * FROM Address WHERE id = #{id}
+	</select> 
+
 	<resultMap id="addressResult" type="Address">
-		<id property="id" column="id"/>
+	<id property = "id" column = "ID"/>
   		<collection  property="personList" column="id" ofType="Person"
-  					 select="getPerson"/>
+  					 select="getPersons"/>
 	</resultMap>
 	
-	<select id="getPerson" resultMap="personResult"> <!-- Use Person object. address =null -->
+	<select id="getPersons" resultType="Person"> 
 	  SELECT * FROM Person WHERE addressId = #{id}
 	</select> 
    	
-	<select id="getResult" resultMap="addressResult">
-	  SELECT * FROM Address WHERE id = #{id}
-	</select> 
 
 	<!--	
 	<select id="selectAddress" parameterType = "int" resultType="Address">
 		  select * from Address A left outer join Person P on A.personId = P.id
 		  where A.id = #{id}
 	</select>
-	
+	-->
 	
 	<resultMap id="addressMap" type="Address">
 	    <id property="id" column="author_id"/>
@@ -66,6 +75,6 @@
       	<result property="email" column="email"/>
       	<association property="address" resultMap="addressMap" />
    </resultMap>   
- 	-->
+ 	
     	
 </mapper>
