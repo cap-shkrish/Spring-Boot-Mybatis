@@ -6,9 +6,8 @@ import java.util.LinkedHashMap;
 
 import javax.validation.constraints.*;
 
-import org.springframework.stereotype.Component;
 
-@Component
+
 public class Employee {
     private String employeeSkillsValue;
     

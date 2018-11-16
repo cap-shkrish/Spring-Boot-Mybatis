@@ -14,7 +14,7 @@ public class LambdaClass {
 			}
 		};
 
-		FI.poo("Jeetho Plakoo1111\n");
+		FI.poo("MyTeam 1111\n");
 
 		// or Lambda Expression Implementation of an Interface
 
@@ -22,15 +22,14 @@ public class LambdaClass {
 			System.out.println(string);
 		};
 
-		function.poo("Jeetho Plakoo22222\n");
+		function.poo("MyTeam 22222\n");
 
 		SecondInterface lambdafunction = (string) -> {
 			System.out.println("Inside Lambda function \n");
-			System.out.println(string);
 			return string;
 		};
 
-		lambdafunction.foo("Second Interface Lambda\n");
+		System.out.println(lambdafunction.foo("Second Interface Lambda\n"));
 
 		// Anytime you want to implement the single functional interface, use lambda as
 		// follows

@@ -2,7 +2,7 @@ package ClassLoaderPackage;
 
 public interface FirstInterface {
 
-	public String hello = "Hello";
+	public String hello = "Hello FirstInterface";
 
 	public void poo(String str);
 
@@ -11,7 +11,7 @@ public interface FirstInterface {
 @FunctionalInterface
 interface SecondInterface {
 
-	public String hello = "Hello";
+	public String hello = "Hello SecondInterface";
 
 	public String foo(String str);
 

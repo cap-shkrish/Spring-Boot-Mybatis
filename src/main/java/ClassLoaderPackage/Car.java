@@ -11,16 +11,16 @@ public class Car extends Vehicle {
 	// same package,
 	// or subclasses of that class can call that constructor.
 
-	protected Car(String licensePlate, int numberOfSeats) {
+	public Car(String licensePlate, int numberOfSeats) {
 		super(licensePlate);
 		this.numberOfSeats = numberOfSeats;
 	}
 
-	protected Car(String licensePlate) {
+	public Car(String licensePlate) {
 		super(licensePlate);
 	}
 
-	protected Car() {
+	public Car() {
 
 	}
 

@@ -21,28 +21,6 @@ public class DataOperationsService {
 		return count;
 	}
 
-	public static void main(String args[]) throws IOException {
-
-		DataOperationsService dop = new DataOperationsService();
-
-		dop.GetRowCount();
-
-		//Create a new student object
-		Student student = new Student(15, "Uppumara", "401-555-7777", "testa@spring.com" ); 
-
-		dop.Insert(student);  
-		dop.GetAll();
-		dop.Get(5);
-		dop.Delete(6);
-		dop.CallStoredProcedure(15);      
-		dop.GetRecordByName("Uppumara");
-
-		Student st = new Student(12, "Zamatron", "201-333-9999", "update@abaqus.com" ); 
-		st.setId(12);//Set id to be updated
-		dop.Update(st);
-
-	}
-
 	public  Student Insert(Student student)
 	{
 		int id = studentMapper.insert(student);
@@ -62,7 +40,7 @@ public class DataOperationsService {
 	}
 
 
-	public  Student Get(int id)
+	public  Student GetById(int id)
 	{
 		Student st = studentMapper.getById(id);
 		System.out.println(st.toString());
@@ -170,7 +148,7 @@ public class DataOperationsService {
 	public  Student Update(Student student)
 	{
 
-		Student st = Get(student.getId());
+		Student st = GetById(student.getId());
 		System.out.println("Current details of the student are" );
 		System.out.println(st.toString());  
 
@@ -179,7 +157,7 @@ public class DataOperationsService {
 		System.out.println("Record updated successfully");   
 
 		//verifying the record 
-		Student std = Get( student.getId());
+		Student std = GetById( student.getId());
 		System.out.println("Details of the student after update operation" );
 		System.out.println(std.toString());   
 

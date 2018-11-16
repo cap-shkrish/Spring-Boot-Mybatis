@@ -11,11 +11,11 @@ public class Vehicle {
 		return this.licensePlate;
 	}
 
-	protected Vehicle(String licensePlate) {
+	public Vehicle(String licensePlate) {
 		this.licensePlate = licensePlate;
 	}
 
-	protected Vehicle() {
+	public Vehicle() {
 	}
 
 	public String polymorphicMethod(String str) {

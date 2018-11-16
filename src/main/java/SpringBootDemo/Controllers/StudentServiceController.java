@@ -44,7 +44,7 @@ public class StudentServiceController
 		
 		if(id != null && !id.isEmpty())
 		{
-			 Student s = dop.Get(Integer.valueOf(id));
+			 Student s = dop.GetById(Integer.valueOf(id));
 			 st.add(s);
 		}
 		else if(name != null  && !name.isEmpty())
@@ -99,7 +99,7 @@ public class StudentServiceController
 	@GetMapping(value="/{id}", produces="application/json")
 	public List <Student> GetStudentById(@PathVariable("id") int id) throws IOException
 	{
-		Student st = dop.Get(id);
+		Student st = dop.GetById(id);
 		ArrayList<Student> al = new ArrayList<Student>();
 		if(st != null)
 			al.add(st);

@@ -1,11 +1,8 @@
 package SpringBootDemo.Beans;
 
-import java.io.Serializable;
 
-import org.springframework.stereotype.Component;
 
-@Component
-public class Student  implements Serializable{
+public class Student  {
 	
 	private Integer age;
 	private String name;
