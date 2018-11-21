@@ -11,9 +11,21 @@ public class Address {
 	private String state;
 	private String country;
 	private Integer postalcode;
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	private List<Person> personList;
 
 
+	public List<Person> getPersonList() {
+		return personList;
+	}
+	public void setPersonList(List<Person> personList) {
+		this.personList = personList;
+	}
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", address1=" + address1 + ", address2=" + address2 + ", city=" + city + ", state="

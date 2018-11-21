@@ -26,7 +26,19 @@ CREATE TABLE springschema.Person(
       PHONE varchar(20) ,
       EMAIL varchar(80),
 	AddressId int,
-	CONSTRAINT FK_Address FOREIGN KEY (AddressId )
+	CONSTRAINT FK_Address1 FOREIGN KEY (AddressId )
+	REFERENCES ADDRESS(ID) 
+);
+
+CREATE TABLE springschema.Personal(
+      PERSON_ID int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+      FIRST_NAME varchar(50) NOT NULL,
+      LAST_NAME varchar(50) NOT NULL,
+      AGE int(10) NOT NULL,
+      PHONE varchar(20) ,
+      EMAIL varchar(80),
+	AddressId int,
+	CONSTRAINT FK_Address2 FOREIGN KEY (AddressId )
 	REFERENCES ADDRESS(ID) 
 );
 

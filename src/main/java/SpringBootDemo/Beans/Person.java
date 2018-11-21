@@ -9,8 +9,16 @@ public class Person  {
 	private String last_name;
 	private String phone;
 	private String email;
-	private Integer id;
 	private Address address;
+	private Integer person_id;
+	
+	public Integer getPerson_id() {
+		return person_id;
+	}
+
+	public void setPerson_id(Integer person_id) {
+		this.person_id = person_id;
+	}
 	
 	public String getLast_name() {
 		return last_name;
@@ -60,18 +68,10 @@ public class Person  {
 		return age;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
 	@Override
 	public String toString() {
 		return "Person [age=" + age + ", first_name=" + first_name + ", last_name=" + last_name + ", phone=" + phone
-				+ ", email=" + email + ", id=" + id + ", address=" + address + "]";
+				+ ", email=" + email + ", person_id=" + person_id +", address=" + address + "]";
 	}
 
 
