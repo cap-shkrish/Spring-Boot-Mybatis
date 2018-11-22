@@ -3,6 +3,7 @@ package SpringBootDemo.Controllers;
 
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -63,6 +64,10 @@ public class HelloController {
 		List<Person> person = resultsSetMapper.getPersonByName("Franz");
 		System.out.println(person);
 		
+				
+		Person p = new Person(33, "Coberto", "Calcao", "999-557-9988", "roberto@falcao.com");
+		p.setPerson_id(11);
+		Integer in = resultsSetMapper.InsertPerson(p);
 		return message;
 	}
 	

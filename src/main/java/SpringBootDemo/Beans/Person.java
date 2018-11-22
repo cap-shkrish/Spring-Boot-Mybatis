@@ -74,6 +74,20 @@ public class Person  {
 				+ ", email=" + email + ", person_id=" + person_id +", address=" + address + "]";
 	}
 
+	public Person(Integer age, String first_name, String last_name, String phone, String email) {
+		
+		this.age = age;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.phone = phone;
+		this.email = email;
+	}
+
+	public Person() {
+		
+		// TODO Auto-generated constructor stub
+	}
+
 
 	
 
