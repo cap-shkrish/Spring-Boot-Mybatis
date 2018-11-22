@@ -55,6 +55,6 @@ public interface ResultsSetMapper {
 			public List<Person> getPersons(Integer id);
 	
 	@SelectProvider(type=MybatisUtility.class, method="getPersonByName")
-	public Person getPersonByName(String name);			
+	public List<Person> getPersonByName(String name);			
 
 }

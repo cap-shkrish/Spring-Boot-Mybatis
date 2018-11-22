@@ -9,7 +9,10 @@ public class MybatisUtility {
 			{
 				SELECT("*");
 				FROM("personal");
-				WHERE("first_name like #{name} || '%'");
+				if (name != null && !name.isEmpty()) {
+					WHERE("first_name like #{name} || '%'");
+				}
+				ORDER_BY("first_name");
 			}
 		}.toString();
 	}

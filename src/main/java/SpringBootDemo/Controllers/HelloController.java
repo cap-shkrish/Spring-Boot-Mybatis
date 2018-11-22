@@ -60,7 +60,7 @@ public class HelloController {
 		List<Person> address2 = resultsSetMapper.getPersons(2);
 		System.out.println(address2);
 		
-		Person person = resultsSetMapper.getPersonByName("Franz");
+		List<Person> person = resultsSetMapper.getPersonByName("Franz");
 		System.out.println(person);
 		
 		return message;
