@@ -68,10 +68,13 @@ public class Person  {
 		return age;
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "Person [age=" + age + ", first_name=" + first_name + ", last_name=" + last_name + ", phone=" + phone
-				+ ", email=" + email + ", person_id=" + person_id +", address=" + address + "]";
+				+ ", email=" + email + ", address=" + address + ", person_id=" + person_id + ", company=" + company
+				+ ", department=" + department + "]";
 	}
 
 	public Person(Integer age, String first_name, String last_name, String phone, String email) {
@@ -89,7 +92,25 @@ public class Person  {
 	}
 
 
-	
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+
+	private Company company;
+	private Department department;
 
 
 }

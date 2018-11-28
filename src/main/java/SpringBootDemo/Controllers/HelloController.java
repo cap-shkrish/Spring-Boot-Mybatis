@@ -65,9 +65,16 @@ public class HelloController {
 		System.out.println(person);
 		
 				
-		Person p = new Person(33, "Coberto", "Calcao", "999-557-9988", "roberto@falcao.com");
-		p.setPerson_id(11);
-		Integer in = resultsSetMapper.InsertPerson(p);
+		Person p = new Person(33, "Roberto", "Falcao", "999-557-9988", "roberto@falcao.com");
+		p.setPerson_id(5);
+		//resultsSetMapper.InsertPerson(p);
+		resultsSetMapper.updatePerson(p);
+		resultsSetMapper.deletePerson(9);
+		
+		p = resultsSetMapper.selectPersonSql1("johann");
+		System.out.println("\n Result of the complicated query : \n");
+		System.out.println(p);
+		
 		return message;
 	}
 	

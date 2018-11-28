@@ -1,5 +1,6 @@
+DELETE from person where person_id > 7;
 
- CREATE TABLE springschema.student(
+CREATE TABLE springschema.student(
       ID int(10) NOT NULL AUTO_INCREMENT,
       NAME varchar(50) NOT NULL,
       AGE int(3) NOT NULL,
@@ -88,7 +89,13 @@ DELIMITER ;
 
 
 
- 
+SELECT P.PERSON_ID, A.address1, A.state, P.FIRST_NAME, D.DEPARTMENT_NAME, C.COMPANY_NAME
+		    FROM(PERSON P, ADDRESS A)
+            INNER JOIN DEPARTMENT D on D.ID = P.DEPARTMENT_ID
+            INNER JOIN COMPANY C on D.COMPANYID = C.ID
+ 		    WHERE(
+            P.ADDRESSID = A.ID and 
+            P.FIRST_NAME like 'Johann');
 
 
 
