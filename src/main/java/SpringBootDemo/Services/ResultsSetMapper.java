@@ -40,9 +40,9 @@ public interface ResultsSetMapper {
 			 @Result(property = "personList", column = "id",
 			    	 many=@Many(select = "getPerson"))})	
 	@Select("select * from address where id=#{addressId}")
-			public Address getAddress(Integer addressId);	
+	public Address getAddress(Integer addressId);	
 	@Select("select * from personal where addressId=#{addressId}")
-			public Person getPerson(Integer addressId);
+	public Person getPerson(Integer addressId);
 	
 	//id userResult can be reused elsewhere  
 	@Results(id = "userResult", value ={
@@ -98,7 +98,7 @@ public interface ResultsSetMapper {
 			"            INNER JOIN COMPANY C on D.COMPANYID = C.ID" + 
 			" 		    WHERE(" + 
 			"            P.ADDRESSID = A.ID and " + 
-			"            P.FIRST_NAME like 'Johann')";
+			"            P.FIRST_NAME like #{name})";
 	@Select(sql)
 	@ResultMap("personResult")
 	public Person selectPersonSql(String name);	
