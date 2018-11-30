@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 import SpringBootDemo.Beans.Student;
 
 @Repository
-
 public class StudentDAOImpl implements StudentDAO {
    
    @Autowired JdbcTemplate jdbcTemplate;

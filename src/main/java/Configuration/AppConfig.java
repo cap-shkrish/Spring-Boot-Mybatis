@@ -3,7 +3,6 @@ package Configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-
 import ClassLoaderPackage.Car;
 import ClassLoaderPackage.Vehicle;
 
@@ -25,4 +24,7 @@ public class AppConfig {
 
   public static final String PROFILE_LOCAL = "local";
   public static final String PROFILE_REMOTE = "remote";
+  
+  
+ 
 }
