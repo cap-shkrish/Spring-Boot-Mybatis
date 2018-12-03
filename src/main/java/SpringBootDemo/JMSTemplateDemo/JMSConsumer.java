@@ -11,6 +11,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 import SpringBootDemo.Beans.Person;
+import SpringBootDemo.Services.MybatisDemoService;
 import SpringBootDemo.Services.ResultsSetMapper;
 
 import javax.jms.Session;
@@ -36,12 +37,10 @@ public class JMSConsumer {
         
                 
 		if(myMessage.equals("johann"))
-		{
-	        Person p = resultsSetMapper.selectPersonSql1(myMessage);
-			System.out.println("\n Result of the complicated query : \n");
-			System.out.println(p);
-		}
+	        mybatisDemoService.selectPersonSql(myMessage);
+		
     }
     
-    @Autowired ResultsSetMapper resultsSetMapper;
+    @Autowired
+    private MybatisDemoService mybatisDemoService;
 }
