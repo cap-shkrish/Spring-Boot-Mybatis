@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<h3>Welcome, Enter The Employee Details</h3>
+
+	<form action="#" th:action="@{/employeeView}" th:object="${employee}"
+		method="post">
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" th:field="*{name}"></td>
+			</tr>
+			<tr>
+				<td>ID:</td>
+				<td><input type="text" th:field="*{id}"></td>
+			</tr>
+			<tr>
+				<td>Contact Number:</td>
+				<td><input type="text" th:field="*{contactNumber}"></td>
+			</tr>
+
+			<tr>
+				<td>Employee DOB:</td>
+				<td><input type="text" th:field="*{employeeDOB}"></td>
+			</tr>
+			<tr>
+				<td>State:</td>
+				<td><select th:field="*{employeeSkillsValue}">
+						<option th:each="state : *{employeeSkills}" th:value="${state}"
+							th:text="${state}"></option>
+				</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td><input type="submit" value="Submit" /></td>
+			</tr>
+
+		</table>
+	</form>
+
+	<div align="center">
+		<h1>
+			<a href="/index">Go to Index Page</a>
+		</h1>
+	</div>
+
+</body>
+</html>
+

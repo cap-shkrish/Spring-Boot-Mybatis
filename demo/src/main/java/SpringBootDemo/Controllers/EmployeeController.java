@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 
 import javax.validation.Valid;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -19,10 +20,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import SpringBootDemo.Beans.Employee;
-
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+@Api(value="EmployeeController API", produces = MediaType.APPLICATION_JSON_VALUE)
 @Controller
 public class EmployeeController {
  
+	@ApiOperation("Returns the Employee Page")
+	@ApiResponses (value= {@ApiResponse(code=200, message="OK", response=Employee.class)})
     @GetMapping(value = "/employee")
     public ModelAndView showEmployeeForm() {
     	//Create a new ModelAndView given (String viewName, String modelName, Object modelObject)
@@ -43,6 +50,9 @@ public class EmployeeController {
     	states.add( "California");
     	
     	Employee emp = new Employee();
+    	emp.setName("Franz Beckenbauer");
+       	emp.setId("234556");
+       	emp.setContactNumber("2345562233");
     	emp.setEmployeeDOB(new Date());
     	emp.setEmployeeSkills(states);
     	return emp;
@@ -78,28 +88,21 @@ public class EmployeeController {
     @ModelAttribute
     public void addingCommonObjects(Model commonModel)
     {
-    	commonModel.addAttribute("message",  "Message");
-    	commonModel.addAttribute("message2",  "Message2");
+    	commonModel.addAttribute("message",  "Ma Main Message");
+    	commonModel.addAttribute("message2",  "Mama Mia Secondary Message");
     	commonModel.addAttribute("employee",  getEmployee());
 
     }
     
     
     @PostMapping(value = "/employeeView")
-    public String submit(@Valid @ModelAttribute("employee")Employee employee, BindingResult bindingResult, ModelMap model) 
+    public String submit(@Valid @ModelAttribute Employee employee, BindingResult bindingResult) 
     {
     	String gotoPage = "employee";
     	
     	// if no form validation errors
         if (!bindingResult.hasErrors()) 
         	gotoPage = "employeeView";
-        
-        //This is not needed as the page has access to model object
-        //model.addAttribute("name", employee.getName());
-        //model.addAttribute("contactNumber", employee.getContactNumber());
-        //model.addAttribute("id", employee.getId());
-        
-    	employee = getEmployee();
 
         return gotoPage;
     }

@@ -11,15 +11,20 @@ import javax.validation.constraints.*;
 public class Employee {
     private String employeeSkillsValue;
     
-    @NotNull
-    @Size(min=8,max=10, message="Please enter a Name with at least between 8 and 10 characters.")
+ //   @NotNull
+//    @Size(min=8,max=10, message="Please enter a Name with at least between 8 and 10 characters.")
 	private String name;
-    private long id;
+    private String id;
     
-    @NotNull
-    @Size(min=8,max=12, message="Please enter a value between 8 and 12.")
+ //   @NotNull
+ //   @Size(min=8,max=12, message="Please enter a value between 8 and 12.")
     private String contactNumber;
-    private ArrayList<String> employeeSkills;
+    @Override
+	public String toString() {
+		return "Employee [name=" + name + ", id=" + id + ", contactNumber=" + contactNumber + ", employeeDOB="
+				+ employeeDOB + "]";
+	}
+	private ArrayList<String> employeeSkills;
 	private LinkedHashMap<Integer, String> employeeSkillsMap;
     private Date employeeDOB;
 
@@ -56,10 +61,10 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getContactNumber() {

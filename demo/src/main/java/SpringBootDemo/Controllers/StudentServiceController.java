@@ -22,8 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import SpringBootDemo.Beans.Student;
 import SpringBootDemo.Services.DataOperationsService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 @CrossOrigin
+@ApiOperation("Returns the Hello World Page")
 @RestController
 @RequestMapping("/students")
 public class StudentServiceController
@@ -32,6 +36,10 @@ public class StudentServiceController
 	private DataOperationsService dop;   
 
 	//http://localhost:9080/students?id=10&name=Shiva+Krishnan&age=77
+	@ApiOperation("Returns All Students")
+	@ApiResponses (value= {
+			@ApiResponse(code=200, message="OK", response=List.class)
+			})	
 	@GetMapping( produces="application/json")
 	public List <Student> GetStudents(@RequestParam Map<String, String> queryParams) throws IOException
 										
@@ -63,6 +71,10 @@ public class StudentServiceController
 	}  	
 	
 	
+	@ApiOperation("Updates Student given an ID as a param")
+	@ApiResponses (value= {
+			@ApiResponse(code=200, message="OK", response=List.class)
+			})
 	@PutMapping(value="", consumes="application/json", produces = "application/json")
 	public List <Student> UpdateStd(@RequestBody Student student, @RequestParam("id") String id) throws IOException
 	{
@@ -76,6 +88,10 @@ public class StudentServiceController
 		return al;
 	}
 
+	@ApiOperation("Deletes a Student given an ID as a param")
+	@ApiResponses (value= {
+			@ApiResponse(code=200, message="OK", response=ResponseEntity.class)
+			})
 	@DeleteMapping(value="")
 	public ResponseEntity<String> DeleteStd(@RequestParam("id") String id) throws IOException
 	{
@@ -84,6 +100,10 @@ public class StudentServiceController
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 
+	@ApiOperation("Adds a Student given a Student json object")
+	@ApiResponses (value= {
+			@ApiResponse(code=200, message="OK", response=List.class)
+			})
 	@PostMapping( consumes="application/json", produces = "application/json")
 	public List <Student> CreateStudent(@RequestBody Student student) throws IOException
 	{
@@ -96,6 +116,10 @@ public class StudentServiceController
 		return al;
 	}
 
+	@ApiOperation("Gets a Student given a Student ID")
+	@ApiResponses (value= {
+			@ApiResponse(code=200, message="OK", response=List.class)
+			})
 	@GetMapping(value="/{id}", produces="application/json")
 	public List <Student> GetStudentById(@PathVariable("id") int id) throws IOException
 	{
@@ -106,6 +130,10 @@ public class StudentServiceController
 		return al;
 	}  
 
+	@ApiOperation("Updates a Student given a Student ID")
+	@ApiResponses (value= {
+			@ApiResponse(code=200, message="OK", response=List.class)
+			})
 	@PutMapping(value="/{id}", consumes="application/json", produces = "application/json")
 	public List <Student> UpdateStudent(@RequestBody Student student, @PathVariable("id") int id) throws IOException
 	{
@@ -119,6 +147,10 @@ public class StudentServiceController
 		return al;
 	}
 	
+	@ApiOperation("Deletes a Student given a Student ID")
+	@ApiResponses (value= {
+			@ApiResponse(code=200, message="OK", response=ResponseEntity.class)
+			})
 	@DeleteMapping(value="/{id}")
 	public ResponseEntity<String> DeleteStudent(@PathVariable("id") int id) throws IOException
 	{
@@ -127,6 +159,10 @@ public class StudentServiceController
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 	
+	@ApiOperation("Returns the total number of students")
+	@ApiResponses (value= {
+			@ApiResponse(code=200, message="OK", response=Map.class)
+			})
 	@GetMapping(value="/count", produces="application/json")
 	public Map<String, Integer> GetStudentCount() throws IOException
 	{
@@ -137,6 +173,10 @@ public class StudentServiceController
 	}  
 
 	//Call Stored Procedure
+	@ApiOperation("Calls a stored procedure to get students by age")
+	@ApiResponses (value= {
+			@ApiResponse(code=200, message="OK", response=List.class)
+			})
 	@GetMapping(value="/call/{age}", produces="application/json")
 	public List<Student> CallStoredProc(@PathVariable("age") int age) throws IOException
 	{
@@ -145,6 +185,10 @@ public class StudentServiceController
 	}  
 
 	//Call Stored Procedure
+	@ApiOperation("Calls a stored procedure to get students by name and age")
+	@ApiResponses (value= {
+			@ApiResponse(code=200, message="OK", response=List.class)
+			})
 	@GetMapping(value="/call/{name}/{age}", produces="application/json")
 	public List<Student> CallStoredProcNameAge(@PathVariable("name") String name, @PathVariable("age") int age) throws IOException
 	{
