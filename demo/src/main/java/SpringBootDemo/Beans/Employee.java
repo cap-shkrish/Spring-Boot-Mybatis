@@ -11,13 +11,13 @@ import javax.validation.constraints.*;
 public class Employee {
     private String employeeSkillsValue;
     
- //   @NotNull
-//    @Size(min=8,max=10, message="Please enter a Name with at least between 8 and 10 characters.")
+   @NotNull
+   @Size(min=8,max=20, message="Please enter a Name with at least between 8 and 10 characters.")
 	private String name;
     private String id;
     
- //   @NotNull
- //   @Size(min=8,max=12, message="Please enter a value between 8 and 12.")
+    @NotNull
+    @Size(min=8,max=12, message="Please enter a value between 8 and 12.")
     private String contactNumber;
     @Override
 	public String toString() {

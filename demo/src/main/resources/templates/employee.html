@@ -9,7 +9,24 @@
 		<table>
 			<tr>
 				<td>Name:</td>
-				<td><input type="text" th:field="*{name}"></td>
+				<!--  <td><input type="text" th:field="*{name}"></td> -->
+				<td>
+					<div
+						th:classappend="${#fields.hasErrors('name')} ? 'input-icon right' : ''">
+						<i th:if="${#fields.hasErrors('name')}"
+							class="fa fa-exclamation tooltips"
+							data-original-title="please enter a valid first name"
+							data-container="body">
+							</i> 
+							<input type="text"
+							class="form-control" maxlength="32" th:field="*{name}"
+							placeholder="Between 1 and 32 characters" /> 
+							<span
+							th:if="${#fields.hasErrors('name')}" class="help-block"
+							th:errors="*{name}">
+							</span>
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>ID:</td>
@@ -17,7 +34,24 @@
 			</tr>
 			<tr>
 				<td>Contact Number:</td>
-				<td><input type="text" th:field="*{contactNumber}"></td>
+				<td>
+					<div
+						th:classappend="${#fields.hasErrors('contactNumber')} ? 'input-icon right' : ''">
+						<i th:if="${#fields.hasErrors('contactNumber')}"
+							class="fa fa-exclamation tooltips"
+							data-original-title="please enter a valid Contact Number"
+							data-container="body">
+							</i> 
+							<input type="text"
+							class="form-control" maxlength="12" th:field="*{contactNumber}"
+							placeholder="Between 8 and 12 characters" /> 
+							<span
+							th:if="${#fields.hasErrors('contactNumber')}" class="help-block"
+							th:errors="*{contactNumber}">
+							</span>
+					</div>
+				</td>
+				
 			</tr>
 
 			<tr>
@@ -29,8 +63,7 @@
 				<td><select th:field="*{employeeSkillsValue}">
 						<option th:each="state : *{employeeSkills}" th:value="${state}"
 							th:text="${state}"></option>
-				</select>
-				</td>
+				</select></td>
 			</tr>
 
 			<tr>
